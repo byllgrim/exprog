@@ -1,6 +1,6 @@
 TARG = exprog
 
-CFLAGS = -Os -Wall -Wextra -pedantic -std=c89
+CFLAGS = -D_POSIX_C_SOURCE=200809 -Os -Wall -Wextra -pedantic -std=c89
 
 $(TARG): $(TARG).o
 	$(CC) $(CFLAGS) -o $@ $<
