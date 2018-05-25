@@ -20,14 +20,26 @@ int
 main(int argc, char **argv)
 {
     int i;
-    int j;
 
-    for (i = 1; i < argc; i++) {
+    for (i = 1; i < argc; i += 2) {
         if (argv[i][0] != '-')
-            usage(argv[0]);
+            die("dash missing\n");
 
-        for (j = 1; argv[i][j]; j++)
-            printf("%c\n", argv[i][j]);
+        if (!argv[i + 1])
+            die("option argument missing\n");
+
+        switch (argv[i][1]) {
+        case 'e':
+            break;
+        case 's':
+            break;
+        case 'g':
+            break;
+        case 'i':
+            break;
+        default:
+            die("invalid option\n");
+        }
     }
 
     return EXIT_SUCCESS;
