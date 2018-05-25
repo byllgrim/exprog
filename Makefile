@@ -6,7 +6,7 @@ $(TARG): $(TARG).o
 	$(CC) $(CFLAGS) -o $@ $<
 
 .c.o:
-	$(CC) -c $<
+	$(CC) $(CFLAGS) -c $<
 
 clean:
 	rm -rf $(TARG) *.o
