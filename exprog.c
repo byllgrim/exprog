@@ -11,7 +11,8 @@ die(char *msg)
 void
 usage(char *prog)
 {
-    fprintf(stderr, "usage: %s [-e ex] [-s start] [-g goal] [-i inc]\n", prog);
+    fprintf(stderr, "usage: %s [-e ex] [-s start] [-g goal] [-i inc]\n",
+            prog);
     die(0);
 }
 
