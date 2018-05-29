@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void
 die(char *msg)
@@ -17,15 +18,32 @@ usage(char *prog)
 }
 
 int
+getopt(int argc, char **argv, int argi, int opti, char **optarg)
+{
+    (void)argc;
+    (void)optarg;
+    printf("getopt: %c\n", argv[argi][opti]);
+
+    return 0;
+}
+
+int
 main(int argc, char **argv)
 {
     int i;
     char *ex = "ex";
     int start = 0;
     int goal = 100;
+    size_t j;
+    char *optarg;
 
     /* TODO parse args the POSIX way */
-    for (i = 1; i < argc; i += 2) {
+    for (i = 1; i < argc; i++) {
+        for (j = 1; j < strlen(argv[i]); j++) {
+            getopt(argc, argv, i, j, &optarg);
+        }
+        continue;
+
         if (argv[i][0] != '-')
             die("dash missing\n");
 
